@@ -1,0 +1,5 @@
+﻿PENDING_CHANGES.md
+*.log
+data.json
+_backups/
+node_modules/
