@@ -16,7 +16,7 @@ jobs:
       - run: node --test "tests/*.test.js"
       - name: 命名红线检查
         run: |
-          if git grep -n -I -E "玥儿|绯月|雪奈|悠米|柚月|星眠" -- .; then
+          if git grep -n -I -E "玥儿|绯月|雪奈|悠米|柚月|星眠" -- . ':(exclude).github/workflows/ci.yml'; then
             echo "::error::外传内容命名红线命中（玥儿/绯月/雪奈/悠米/柚月/星眠），请清理后重新提交"
             exit 1
           fi
