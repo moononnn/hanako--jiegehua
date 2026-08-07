@@ -58,6 +58,21 @@ ${hanaCss ? `<link rel="stylesheet" href="${escapeAttr(hanaCss)}">` : ""}
     --dgh-rule: #d5e5dd;
     --dgh-ok: #4a8a5e;
   }
+  /* 暗色主题适配（2026-08-07）：宿主注入 data-hana-theme + hana-css 主题变量，
+     夜间主题（midnight / midnight-contrast）下覆盖为深色系；
+     优先引用宿主主题变量（var(--xxx, fallback) 双保险），宿主没传时退回本地暗色值。 */
+  body[data-hana-theme="midnight"],
+  body[data-hana-theme="midnight-contrast"] {
+    --dgh-bg: var(--bg, #26333b);
+    --dgh-ink: var(--text, #dce6ec);
+    --dgh-sub: var(--text-muted, #a3b5c0);
+    --dgh-accent: #7ec9a8;
+    --dgh-accent-deep: #8fd6b4;
+    --dgh-accent-light: rgba(126, 201, 168, 0.14);
+    --dgh-paper: var(--bg-card, #33414a);
+    --dgh-rule: var(--border, #4b5a63);
+    --dgh-ok: var(--green, #8cc790);
+  }
   * { box-sizing: border-box; margin: 0; padding: 0; }
   body {
     font-family: "LXGW WenKai", "霞鹜文楷", "Kaiti SC", "STKaiti", serif;
